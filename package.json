@@ -16,6 +16,22 @@
       {
         "command": "search-in-open-files.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "search-in-open-files.searchOpenFiles",
+        "title": "Search: Find in all Open Files"
+      },
+      {
+        "command": "search-in-open-files.searchOpenFilesInActiveGroup",
+        "title": "Search: Find in Files of the Active Tab Group"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.searchActiveEditors",
+        "key": "ctrl+shift+g",
+        "mac": "cmd+shift+g",
+        "when": "editorFocus"
       }
     ]
   },

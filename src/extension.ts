@@ -1,26 +1,64 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "search-in-open-files.searchOpenFiles",
+      () => {
+        searchInAllOpenFiles();
+      }
+    ),
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "search-in-open-files" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('search-in-open-files.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from search in open files!');
-	});
-
-	context.subscriptions.push(disposable);
+    vscode.commands.registerCommand(
+      "search-in-open-files.searchOpenFilesInActiveGroup",
+      () => {
+        searchInActiveEditorFiles();
+      }
+    )
+  );
 }
 
-// This method is called when your extension is deactivated
+async function searchInAllOpenFiles() {
+  const allOpenTabs = vscode.window.tabGroups.all
+    .map((tabGroup) => tabGroup.tabs)
+    .flat();
+
+  await searchInTabs(allOpenTabs);
+}
+
+async function searchInActiveEditorFiles() {
+  const activeTabGroup = vscode.window.tabGroups.activeTabGroup;
+  const activeTabs = activeTabGroup.tabs;
+
+  await searchInTabs(activeTabs);
+}
+
+async function searchInTabs(tabs: readonly vscode.Tab[]) {
+  const tabFilenames = tabs
+    .map((tab) => {
+      if (tab.input instanceof vscode.TabInputText) {
+        return vscode.workspace.asRelativePath(tab.input.uri);
+      }
+
+      return null;
+    })
+    .filter((filename): filename is string => filename !== null);
+
+  const filePattern = tabFilenames.join(", ");
+
+  try {
+    // Open search view with the files-to-include pattern
+    await vscode.commands.executeCommand("workbench.action.findInFiles", {
+      filesToInclude: filePattern,
+    });
+  } catch (error) {
+    vscode.window.showErrorMessage(
+      `an error occurred while opening search :(\n
+	  please consider reporting this on GitHub: \n
+	  https://github.com/f-person/vscode-search-in-open-files
+	  ${error}`
+    );
+  }
+}
+
 export function deactivate() {}
