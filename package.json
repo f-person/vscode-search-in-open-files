@@ -2,7 +2,7 @@
   "name": "search-in-open-files",
   "displayName": "search in open files",
   "description": "lets u search in open files using the native vs code search",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "f-person",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     ],
     "keybindings": [
       {
-        "command": "extension.searchActiveEditors",
+        "command": "search-in-open-files.searchOpenFiles",
         "key": "ctrl+shift+g",
         "mac": "cmd+shift+g",
         "when": "editorFocus"
