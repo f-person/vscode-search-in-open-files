@@ -3,6 +3,12 @@
   "displayName": "search in open files",
   "description": "lets u search in open files using the native vs code search",
   "version": "1.0.0",
+  "publisher": "f-person",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/f-person/vscode-search-in-open-files.git"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.100.0"
   },
