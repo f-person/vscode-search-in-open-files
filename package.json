@@ -2,7 +2,7 @@
   "name": "search-in-open-files",
   "displayName": "search in open files",
   "description": "lets u search in open files using the native vs code search",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -13,10 +13,6 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "search-in-open-files.helloWorld",
-        "title": "Hello World"
-      },
       {
         "command": "search-in-open-files.searchOpenFiles",
         "title": "Search: Find in all Open Files"

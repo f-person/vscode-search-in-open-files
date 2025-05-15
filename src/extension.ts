@@ -47,7 +47,6 @@ async function searchInTabs(tabs: readonly vscode.Tab[]) {
   const filePattern = tabFilenames.join(", ");
 
   try {
-    // Open search view with the files-to-include pattern
     await vscode.commands.executeCommand("workbench.action.findInFiles", {
       filesToInclude: filePattern,
     });
