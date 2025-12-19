@@ -1,8 +1,8 @@
 {
   "name": "search-in-open-files",
   "displayName": "search in open files",
-  "description": "lets u search in open files using the native vs code search",
-  "version": "1.0.1",
+  "description": "lets u search in open files, files with git changes using the native vs code search",
+  "version": "1.1.0",
   "publisher": "f-person",
   "repository": {
     "type": "git",
