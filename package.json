@@ -26,6 +26,18 @@
       {
         "command": "search-in-open-files.searchOpenFilesInActiveGroup",
         "title": "Search: Find in Files of the Active Tab Group"
+      },
+      {
+        "command": "search-in-open-files.searchGitChangedFiles",
+        "title": "Search: Find in all Files with Git Changes"
+      },
+      {
+        "command": "search-in-open-files.searchStagedFiles",
+        "title": "Search: Find in Staged Files"
+      },
+      {
+        "command": "search-in-open-files.searchUnstagedFiles",
+        "title": "Search: Find in Unstaged Files"
       }
     ],
     "keybindings": [
@@ -33,6 +45,24 @@
         "command": "search-in-open-files.searchOpenFiles",
         "key": "ctrl+shift+g",
         "mac": "cmd+shift+g",
+        "when": "editorFocus"
+      },
+      {
+        "command": "search-in-open-files.searchGitChangedFiles",
+        "key": "ctrl+shift+alt+g",
+        "mac": "cmd+shift+alt+g",
+        "when": "editorFocus"
+      },
+      {
+        "command": "search-in-open-files.searchStagedFiles",
+        "key": "ctrl+shift+alt+s",
+        "mac": "cmd+shift+alt+s",
+        "when": "editorFocus"
+      },
+      {
+        "command": "search-in-open-files.searchUnstagedFiles",
+        "key": "ctrl+shift+alt+u",
+        "mac": "cmd+shift+alt+u",
         "when": "editorFocus"
       }
     ]
