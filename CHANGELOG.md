@@ -6,6 +6,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-06-09
+
+### Added
+- Search in all edited files (both staged and unstaged tracked changes)
+  - Command: `Search: Find in all Edited Files (Staged & Unstaged)`
+  - Keybinding: `Ctrl+Shift+Alt+E` (Windows/Linux) / `Cmd+Shift+Alt+E` (Mac)
+
+## [1.1.0]
+
 ### Added
 - Search in all files with git changes (modified, staged, unstaged, and untracked files)
   - Command: `Search: Find in all Files with Git Changes`
