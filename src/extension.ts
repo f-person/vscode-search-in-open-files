@@ -39,6 +39,13 @@ export function activate(context: vscode.ExtensionContext) {
       () => {
         searchInUnstagedFiles();
       }
+    ),
+
+    vscode.commands.registerCommand(
+      "search-in-open-files.searchEditedFiles",
+      () => {
+        searchInEditedFiles();
+      }
     )
   );
 }
@@ -155,6 +162,12 @@ async function searchInStagedFiles() {
 async function searchInUnstagedFiles() {
   const files = await getGitFiles("git diff --name-only");
   await searchInGitFiles(files, "unstaged");
+}
+
+async function searchInEditedFiles() {
+  // All edited tracked files, both staged and unstaged (relative to HEAD)
+  const files = await getGitFiles("git diff --name-only HEAD");
+  await searchInGitFiles(files, "edited");
 }
 
 export function deactivate() {}

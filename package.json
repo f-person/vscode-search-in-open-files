@@ -38,6 +38,10 @@
       {
         "command": "search-in-open-files.searchUnstagedFiles",
         "title": "Search: Find in Unstaged Files"
+      },
+      {
+        "command": "search-in-open-files.searchEditedFiles",
+        "title": "Search: Find in all Edited Files (Staged & Unstaged)"
       }
     ],
     "keybindings": [
@@ -63,6 +67,12 @@
         "command": "search-in-open-files.searchUnstagedFiles",
         "key": "ctrl+shift+alt+u",
         "mac": "cmd+shift+alt+u",
+        "when": "editorFocus"
+      },
+      {
+        "command": "search-in-open-files.searchEditedFiles",
+        "key": "ctrl+shift+alt+e",
+        "mac": "cmd+shift+alt+e",
         "when": "editorFocus"
       }
     ]
